@@ -227,6 +227,104 @@ const App: React.FC = () => {
     </div>
   </div>
 </section>
+{/* Pricing Section */}
+<section id="pricing"
+  className="py-6 sm:py-8"  // Further reduced padding to decrease height
+  style={{
+    backgroundColor: "#EDE2CE" // Background color from the uploaded palette
+  }}
+>
+  <div className="container mx-auto px-6 md:px-12">  {/* Added more padding between the screen edges */}
+    <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center font-playfair"
+      style={{ color: "#181C14" }}  // Primary dark color for the title
+    >
+      Arigato Ramen Reservation Pricing
+    </h2>
+    <p className="text-xl mb-8 max-w-4xl mx-auto text-center font-lato"
+      style={{ color: "#3E4039" }}  // Text color for the description
+    >
+      Secure your seat at our exclusive ramen bar in Bangalore. Choose a reservation package to savor your perfect ramen experience.
+    </p>
+
+    {/* Grid with Pricing Tiers */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        {
+          tier: "Classic",
+          price: "Free",
+          description:
+            "A traditional ramen experience. Perfect for first-time visitors looking to explore the flavors of Arigato Ramen.",
+          features: [
+            "1 Hour Reservation Slot",
+            "Access to All Menu Items",
+            "Cozy Seating",
+            "Free Refills of Green Tea"
+          ],
+          bgColor: "#3E4039"
+        },
+        {
+          tier: "Premium",
+          price: "₹500 /person",
+          description:
+            "The Premium experience offers exclusive seating and personalized service for a very refined visit at Arigato Ramen.",
+          features: [
+            "2 Hour Reservation Slot",
+            "Seating by the Chef's Counter",
+            "Personalized Ramen Selection",
+            "Complimentary Sake"
+          ],
+          bgColor: "#5E6A59"
+        },
+        {
+          tier: "VIP",
+          price: "₹1000 /person",
+          description:
+            "An unparalleled experience for the ultimate ramen enthusiast. Includes private dining and chef's tasting menu.",
+          features: [
+            "3 Hour Reservation Slot",
+            "Private Dining Room",
+            "Chef's Tasting Menu",
+            "Complimentary Pairing Drinks"
+          ],
+          bgColor: "#181C14"
+        }
+      ].map((plan, index) => (
+        <div
+          key={index}
+          className="rounded-lg shadow-lg p-6 transform transition-transform duration-500 hover:scale-105"
+          style={{
+            backgroundColor: plan.bgColor,  // Use the new palette colors for each plan
+            color: "#EDE2CE"  // Text color from the palette for content inside the cards
+          }}
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-center font-montserrat">
+            {plan.tier}
+          </h3>
+          <p className="text-4xl font-bold mb-4 text-center font-montserrat">
+            {plan.price}
+          </p>
+          <p className="text-lg mb-6 text-center font-lato">
+            {plan.description}
+          </p>
+          <ul className="mb-6 space-y-2 font-lato">
+            {plan.features.map((feature, i) => (
+              <li key={i} className="flex items-center justify-center">
+                <span className="mr-2">✔️</span> {feature}
+              </li>
+            ))}
+          </ul>
+          <button
+            className="bg-white text-black font-bold py-2 px-4 rounded-lg w-full"
+            onClick={() => alert("Reservation feature coming soon!")}
+          >
+            Reserve Now
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
       </main>
 {/* Popup */}
 {isPopupOpen && (
